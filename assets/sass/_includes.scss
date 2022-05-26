@@ -1,0 +1,31 @@
+// variables,mixins,extends
+@import "helpers/helpers_all";
+@import "family";
+
+// base
+@import "reset";
+@import "fonts";
+@import "base";
+@import "main";
+
+// templates
+@import "templates/header";
+@import "templates/footer";
+@import "templates/popup";
+
+// Blocks
+@import "blocks/sections";
+@import "blocks/global";
+
+// icons
+@import "icons";
+@import "sprite";
+
+// Page
+
+@import "page/home";
+
+//plugins
+@import "plugins/slick-theme";
+@import "plugins/slick";
+@import "plugins/simplePagination";

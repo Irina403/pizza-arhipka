@@ -1,0 +1,14 @@
+.footer {
+	width: 100%;
+	min-height: $footer;
+	flex: 0 0 auto;
+	font-size: 1rem;
+
+	will-change: transform;
+
+	@include bp($point_2) {
+		height: $footer_mob;
+	}
+}
+
+
