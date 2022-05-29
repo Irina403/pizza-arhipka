@@ -1,0 +1,14 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50" height="50">
+	<title>akkordeon</title>
+	<defs>
+		<image  width="50" height="50" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAAXNSR0IB2cksfwAAAE5QTFRFAAAA3d3d5+fn3d3d3d3d3d3d3d3d3d3d5+fn9/f3////KhsPcWde/v7+hHt0HQ0Aal9X/Pv7iIB5YldN+Pj4lo6ILh8Tm5SOIhIG3d3d7B1z1QAAABp0Uk5TAD6YwsyYPWrMzMz76czl/+vN5O3N4frg/sPo5gSxAAAAj0lEQVR4nO2WyQ6DMAxEJySBYBazlFL+/0cbegbJzqESkueQi/U0jnx5AFzlgzA+1shpUkvitKkB6iQHziSHqOj49VTwOoLII2iRYIghhvwf6fohv0PfyZGRp5nmiUfFYguvr5UXxWJEG795u5zcf3//7NeDp93FEEOehxSoQoGQOL32FMjVqXCHVOGOmDu+W3ZdkWMRUbEAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+	</style>
+	<g id="akkordeon">
+		<g id="6">
+			<use id="Vector Smart Object copy 2" href="#img1" x="0" y="0" />
+		</g>
+	</g>
+</svg>
