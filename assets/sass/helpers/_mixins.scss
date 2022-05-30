@@ -243,17 +243,24 @@
 	align-items: center;
 }
 
-
-
-// btn
-
-@mixin btn {
-	a {
-		font-size: 3.5rem;
-		line-height: 45px;
-		font-family: $font_3;
-		font-weight: 400;
-		color: $black;
-		display: flex;
-	}
+@mixin wrapp{
+	max-width: 1190px;
+	width: 100%;
+	margin: 0 auto;
+	padding-left: 15px;
+    padding-right: 15px;
 }
+
+
+// // btn
+
+// @mixin btn {
+// 	a {
+// 		font-size: 3.5rem;
+// 		line-height: 45px;
+// 		font-family: $font_3;
+// 		font-weight: 400;
+// 		color: $black;
+// 		display: flex;
+// 	}
+// }
