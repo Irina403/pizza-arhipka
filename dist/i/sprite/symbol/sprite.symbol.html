@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+		<script src="https://rawgit.com/jonathantneal/svg4everybody/master/dist/svg4everybody.js"></script>
+		<script>svg4everybody();</script>
+		<title>SVG &lt;symbol&gt; sprite preview | svg-sprite</title>
+		<style>@charset "UTF-8";body{padding:0;margin:0;color:#666;background:#fafafa;font-family:Arial,Helvetica,sans-serif;font-size:1em;line-height:1.4}header{display:block;padding:3em 3em 2em 3em;background-color:#fff}header p{margin:2em 0 0 0}section{border-top:1px solid #eee;padding:2em 3em 0 3em}section ul{margin:0;padding:0}section li{display:inline;display:inline-block;background-color:#fff;position:relative;margin:0 2em 2em 0;vertical-align:top;border:1px solid #ccc;padding:1em 1em 3em 1em;cursor:default}.icon-box{margin:0;width:144px;height:144px;position:relative;background:#ccc url("data:image/gif;base64,R0lGODlhDAAMAIAAAMzMzP///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDozQjk4OTI0MUY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDozQjk4OTI0MkY5NTIxMUUyQkJDMEI5NEFEM0Y1QTYwQyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjNCOTg5MjNGRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjNCOTg5MjQwRjk1MjExRTJCQkMwQjk0QUQzRjVBNjBDIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAAAAAAAsAAAAAAwADAAAAhaEH6mHmmzcgzJAUG/NVGrfOZ8YLlABADs=") top left repeat;border:1px solid #ccc;display:table-cell;vertical-align:middle;text-align:center}.icon{display:inline;display:inline-block}h1{margin-top:0}h2{margin:0;padding:0;font-size:1em;font-weight:normal;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;position:absolute;left:1em;right:1em;bottom:1em}footer{display:block;margin:0;padding:0 3em 3em 3em}footer p{margin:0;font-size:.7em}footer a{color:#0f7595;margin-left:0}</style>
+
+<!--
+
+Sprite shape dimensions
+====================================================================================================
+You will need to set the sprite shape dimensions via CSS when you use them as inline SVG, otherwise
+they would become a huge 100% in size. You may use the following dimension classes for doing so.
+They might well be outsourced to an external stylesheet of course.
+
+-->
+
+<style type="text/css">
+	.svg-arrow-dims { width: 9px; height: 16px; }
+	.svg-arrow-cicle-dims { width: 56px; height: 56px; }
+	.svg-arrow-long-dims { width: 353px; height: 16px; }
+	.svg-arrow-next-slide-dims { width: 146px; height: 16px; }
+	.svg-arrow-prev-slide-dims { width: 146px; height: 16px; }
+	.svg-burger-icon-dims { width: 23px; height: 15px; }
+	.svg-close-icon-dims { width: 15px; height: 15px; }
+	.svg-logo-dims { width: 33px; height: 28px; }
+	.svg-my-Space-dims { width: 160px; height: 20px; }
+	.svg-telega-dims { width: 50px; height: 50px; }
+	.svg-whats-dims { width: 50px; height: 50px; }
+</style>
+<!--
+====================================================================================================
+-->
+
+	</head>
+	<body>
+
+<!--
+
+Inline <symbol> SVG sprite
+====================================================================================================
+This is an inlined version of the generated SVG sprite. The single images may be <use>d everywhere
+below within this document. Please see
+
+	https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode
+
+for further details on how to create this embeddable sprite variant.
+
+-->
+
+<svg width="0" height="0" style="position:absolute">
+		<symbol viewBox="0 0 9 16" id="arrow" xmlns="http://www.w3.org/2000/svg"><path d="M2.29 15.077L8.486 8.88a1.24 1.24 0 000-1.748L2.29.936A1.238 1.238 0 00.542 2.683L5.86 8 .542 13.33a1.239 1.239 0 000 1.747 1.24 1.24 0 001.748 0z"/></symbol>
+		<symbol viewBox="0 0 56 56" id="arrow-cicle" xmlns="http://www.w3.org/2000/svg"><path d="M35 38a1 1 0 001-1v-9a1 1 0 10-2 0v8h-8a1 1 0 100 2h9zM18.293 21.707l16 16 1.414-1.414-16-16-1.414 1.414z"/><circle cx="28" cy="28" r="27.5"/></symbol>
+		<symbol viewBox="0 0 353 16" id="arrow-long" xmlns="http://www.w3.org/2000/svg"><path d="M352.707 8.707a1 1 0 000-1.414L346.343.929a1 1 0 10-1.414 1.414L350.586 8l-5.657 5.657a1 1 0 101.414 1.414l6.364-6.364zM0 9h352V7H0v2z"/></symbol>
+		<symbol viewBox="0 0 146 16" id="arrow-next-slide" xmlns="http://www.w3.org/2000/svg"><path d="M145.707 8.707a1 1 0 000-1.414L139.343.929a1 1 0 10-1.414 1.414L143.586 8l-5.657 5.657a1 1 0 101.414 1.414l6.364-6.364zM0 9h145V7H0v2z"/></symbol>
+		<symbol viewBox="0 0 146 16" id="arrow-prev-slide" xmlns="http://www.w3.org/2000/svg"><path d="M.293 8.707a1 1 0 010-1.414L6.657.929A1 1 0 118.07 2.343L2.414 8l5.657 5.657a1 1 0 01-1.414 1.414L.293 8.707zM146 9H1V7h145v2z"/></symbol>
+		<symbol viewBox="0 0 23 15" id="burger-icon" xmlns="http://www.w3.org/2000/svg"><path d="M21.003 6.25H1.997c-.62 0-1.122.532-1.122 1.188v.125c0 .655.502 1.187 1.122 1.187h19.006c.62 0 1.122-.532 1.122-1.188v-.125c0-.655-.502-1.187-1.122-1.187zm0 6.25H1.997c-.62 0-1.122.532-1.122 1.188v.124c0 .656.502 1.188 1.122 1.188h19.006c.62 0 1.122-.532 1.122-1.188v-.124c0-.656-.502-1.188-1.122-1.188zm0-12.5H1.997C1.377 0 .875.532.875 1.188v.125c0 .655.502 1.187 1.122 1.187h19.006c.62 0 1.122-.532 1.122-1.188v-.125C22.125.532 21.623 0 21.003 0z"/></symbol>
+		<symbol viewBox="0 0 15 15" id="close-icon" xmlns="http://www.w3.org/2000/svg"><path d="M9.26 7.499l5.37-5.358A1.254 1.254 0 0012.858.367L7.5 5.737 2.143.368A1.254 1.254 0 10.369 2.141l5.37 5.358-5.37 5.358a1.25 1.25 0 000 1.774 1.25 1.25 0 001.774 0L7.5 9.26l5.357 5.37a1.25 1.25 0 001.774 0 1.25 1.25 0 000-1.773L9.26 7.499z"/></symbol>
+		<symbol viewBox="0 0 33 28" id="logo" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h33v28H0z"/><defs><pattern id="hpattern0" patternContentUnits="objectBoundingBox" width="1" height="1"><use xlink:href="#himage0_44_145" transform="matrix(.01035 0 0 .0122 -.017 0)"/></pattern><image id="himage0_44_145" width="100" height="82" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABSCAYAAACiwXHkAAABN2lDQ1BBZG9iZSBSR0IgKDE5OTgpAAAokZWPv0rDUBSHvxtFxaFWCOLgcCdRUGzVwYxJW4ogWKtDkq1JQ5ViEm6uf/oQjm4dXNx9AidHwUHxCXwDxamDQ4QMBYvf9J3fORzOAaNi152GUYbzWKt205Gu58vZF2aYAoBOmKV2q3UAECdxxBjf7wiA10277jTG+38yH6ZKAyNguxtlIYgK0L/SqQYxBMygn2oQD4CpTto1EE9AqZf7G1AKcv8ASsr1fBBfgNlzPR+MOcAMcl8BTB1da4Bakg7UWe9Uy6plWdLuJkEkjweZjs4zuR+HiUoT1dFRF8jvA2AxH2w3HblWtay99X/+PRHX82Vun0cIQCw9F1lBeKEuf1UYO5PrYsdwGQ7vYXpUZLs3cLcBC7dFtlqF8hY8Dn8AwMZP/fNTP8gAAAAJcEhZcwAACxMAAAsTAQCanBgAAAXIaVRYdFhNTDpjb20uYWRvYmUueG1wAAAAAAA8P3hwYWNrZXQgYmVnaW49Iu+7vyIgaWQ9Ilc1TTBNcENlaGlIenJlU3pOVGN6a2M5ZCI/PiA8eDp4bXBtZXRhIHhtbG5zOng9ImFkb2JlOm5zOm1ldGEvIiB4OnhtcHRrPSJBZG9iZSBYTVAgQ29yZSA2LjAtYzAwMiA3OS4xNjQ0NjAsIDIwMjAvMDUvMTItMTY6MDQ6MTcgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdEV2dD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlRXZlbnQjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSIgeG1wOkNyZWF0ZURhdGU9IjIwMjAtMDktMjJUMTA6Mzk6MTcrMDM6MDAiIHhtcDpNb2RpZnlEYXRlPSIyMDIwLTA5LTIyVDExOjQyOjQwKzAzOjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIwLTA5LTIyVDExOjQyOjQwKzAzOjAwIiBkYzpmb3JtYXQ9ImltYWdlL3BuZyIgcGhvdG9zaG9wOkNvbG9yTW9kZT0iMyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoxMWM0ZTgwMi0zYjA2LTk2NGMtYTE5NC1hZGM5MzRiOWU1MjAiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDo1NTY2N2JiYi01NjU2LTFiNDktYjAwNS1mOGMyNjYwMmY4OGMiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MTM0NTU2Zi1kMTJkLTllNDItYTRmOC1kNWQyY2Y3Zjc2OWUiPiA8eG1wTU06SGlzdG9yeT4gPHJkZjpTZXE+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJjcmVhdGVkIiBzdEV2dDppbnN0YW5jZUlEPSJ4bXAuaWlkOjYxMzQ1NTZmLWQxMmQtOWU0Mi1hNGY4LWQ1ZDJjZjdmNzY5ZSIgc3RFdnQ6d2hlbj0iMjAyMC0wOS0yMlQxMDozOToxNyswMzowMCIgc3RFdnQ6c29mdHdhcmVBZ2VudD0iQWRvYmUgUGhvdG9zaG9wIDIxLjIgKFdpbmRvd3MpIi8+IDxyZGY6bGkgc3RFdnQ6YWN0aW9uPSJzYXZlZCIgc3RFdnQ6aW5zdGFuY2VJRD0ieG1wLmlpZDoxMWM0ZTgwMi0zYjA2LTk2NGMtYTE5NC1hZGM5MzRiOWU1MjAiIHN0RXZ0OndoZW49IjIwMjAtMDktMjJUMTE6NDI6NDArMDM6MDAiIHN0RXZ0OnNvZnR3YXJlQWdlbnQ9IkFkb2JlIFBob3Rvc2hvcCAyMS4yIChXaW5kb3dzKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7rm21xAAAjpElEQVR4nNWdd5xU1dnHv8+5U3a2sLssvTdFBUUEbBFbsIZESexYEkWNGqPJG1vQEEWNiUZJVMCISWyxd000moixC4IoghRB6W37zk6997x/PHd2ZiuzgoY8fOazy87ce885v6c/zzkj1lr+x6gMGAN8GxgFFAJJ/70gEABWAG8D/wFWAd43PsqvSPI/BEghcDhwMpAGPgK+AAqAXigYdcA2/2+jgOHAe8BT/md3+cn+LwAiwEjgfHRBXwEGAfuj0rAVWAPEgMFAGOiNSsYHwEDgYOAFFJjGb3T0naRdHZAAcDxwFvAEUIKqquXAM+ii17e4xqASMwE4GtgIvA58D4gCvwM2fwNj/0q0KwMSAn4IHAI8jC5uCJiBApHPwIuBSf7rCaAPsA9wLbB2Zw94Z9CuCkgQuAA4CHgcOAOYCzxA51WOACOAK4EPAQfYF7gKlZ5dinZFQAyqXr4PPAmcB8wBXmLHvKX+wK+ApShImf/X7chgdzaZ//YA2qCDUJvxCHA2OwcMUBX1a2A06iY3AJejanCXoZ0pIYK6mxHU+OaSC9Si7mqc9vV/T+D3wLPAMcAbwN/YuXHEEOA3wH3Aaaj39cx2rjHo3FqSpeP5dJp2FBAD9EW57luo0UzSmutcIAUUoXHCMmAJ6q5uQu1CEDW2cRTUOuAPZIO+nUnjgYtRm3Qu8HNUgsR/dgWq0voCe/g/u/jzaElVwGfAp/7PbewAA31VQATYDVUtg4HVwCIUoCQaTZf5n21EJ1vkv58CuqET7e1/ZiXqio5HufV44P/QyX0d5AAXoe5xNbrgrwAHohJkUZW2GvgSdb8T/hxyKYquRRkaF5WjNupB8vcEm9FXASQEfBeYDPwTWO9PpA/K5Rtonq7wUBU2FOiKBnBBdLKfoRLRHV2gSpQzHwTu9+/9daQ9IqhU/xGNYwYC81AnIuGPb6Q/Zg9d9CAqDSn/HkF/PnGU0Zai8VFvNKPwHOpqd0rCOwuIg7qjBwOPonq+C6rzP/AHHG/vWWRtTG+gH3AAMAxdEIMCFEDd0cH+zxfQxWrozEDbeX4/VAqPQCP6SmBPVH0ejDJSGpXYhajUrgdqUGBy7UVmPiFUwg5E12ML8DJwon+/O2h/TVoPspOAHIly8oOoB/Q88DQ7tlgDgFkoGCegOapPUBXYDbVNaeAt4N/AOjqnCiLAXsB3UI5fi8YjQdSjOwrNcwnqQDyNSvFXoS7+HCaiDHs4Cva95CnpnQGkGEX7ZTTyfRx4Md8HdUDnALujutyiauNglNss8C6qx/cF9gY+Bx5DHYO2jGyGugKHokBY4H3UJu2LSsUqNNhM+GN4DrVdl/PVAQEFdj808Pwzyrg3A4vzurgTgBwFHIt6RgXAbXS8IPlQF+AuNDVyFhpNb/Dfi6Dq7Dg00l6FqpFBqHpYhSYLP24xjp7+OL+NJh7fQyXtAP/9fwBvot6dh0rK7ajKPdb//cMdnBfAD/z7LUS1wC/Jg3kDed5cUG5biHLc9bQBxuTX3pPCkuKIcZwyY0xBKp4oA0wgGKzFSNxLpWvcZKrxvkNHZ67dD7U7Q9CFzU1lxFDVtRhd0CNRyWxA1Uop8DNUzz+KLvDRKBCfoZK2JxprrEAN+FJac38KDULPBf6O6v6FgPfwRfMNyhilKBMWodIWRe1CLRCbPGtsW1z9qv/sLWg+rsT/fIeUr4REgD+hHHkKMAVoPPmVtyivqOgiIkONmIPFyL7o4vYTkULr2ULAiNAIxK0u2io877OQMW9/ePn5Z7w5d+4/0TTJTagv3xEVozblNNSuvISqu7NQBpmP2rUxqN141x/zWjrmzgga87x8wP4HnnPT6fffs3l5/XBURQ5BPcgI6ghYVM3FUHuWcfnfRp2BusmzxmbueyWqivdB7eSS7cwvb0AK0ej2dWDCjOVrLl/emBhorZ0kIhMFRiDSlfxTMVYg2j0USJc4zgcTepTVLqyqP++cIX1aptLboyLUU7oCjQHW+K8jUc59DHU8NpCHA/DXy94Lfeu0IT/d+GndxOo1jbtHq1LF1rXFqGbIhzxU0peiKvEpYNXkWWMPRe1hBSrVb27vRp0BZCrwn7eWLvvRw3FZb4w5EXVXnTwH3fYAAEeoTbn2Zeu691jXe3v2AXt15Ls7KMed5//+OXAmqlL+iaqIkWgM8A86yA7f84s3A45nRhlPLnGsc5zxpJdxzY4mQjyUOV7Y//SBn+x2aPcR6B13LiCj9t33zvOefLFhazI9pSqVLuDrSExaW2k9+4R1vVu9eGL1PeNHtRxcb+BC1Ni/gOrl41CDXInaj5Vo3HI8ujgzUVXRpLLuuup1jDW9jZVLjWfOdjzpazyD4xmMZxCvuWC4novrpUm7KdJeGs+6WGsxxsExDkEnRMAEcUwz3vQKSgL1vfboMvcPL11T/fhTj/2ZnQHIJYtWUiSM7BYOPbo2kRzu2bwdga9KHtZ+Yq29zkumX559wF4plPuPRe3XQtTD+j6qkv5C1gXujmYQxqPBqqBOyBuo4a/6wzX/MoIcYjy5ybHmQOOZgAIhOJ6D8QTjGVw3TTwVozHZQCIVbwZELgmCMQbHBCkIRigOlxAORjDSxK/JHrsXN5T1iZy7fO7W59txALL36wiQ8977xARDoUOMMXeIyGjy16k7TpZt1vNuPDXs/vOwEXv+EM0TPY+mPPYA/op2lSRaXGnQBocL/PG+guaZeh1++BGzJo2/dg/STDfWDHA8wdisZDiewUu6xGJRGmK1JN0E1lpEBEccRIwvBdll8KyL57m4GakRQ2GomNLCcsLBCKKftai3+H/AvybPGtuug9EuIBd/tMJ4rnuccZw7RWRwZ9dzJ1Hjt8pL1j0/9RcPPfrggytQt7eJ27dzbSGqziYDb4wcsXdy5h1P/WTBW2sGkKY4C4SCIilLItpIQ30tqXQKYwwhJ0xBMEIkWEgwEELEYMQ0wWEBaz0865Fyk8SSjcRTMZLpOCKG0kg5pZFyTFaVrQV+CrwwedbYNmO4NgE5Y+4H0qVLlwnGOHNEZEAnF3GnkkBqeFHBksennLXszbmvT6eFPciDBt14442X7T184oTlH28aZqwpMJ7BWMGxCogbS9FYXUsyHsdxAhSGiykJlxJywrmqJy/yrEciFac+XkMsGSUSKqJrcQ8CpknTb0DTTy+2JSmtAJn4zMv0HzRklIg8IiJ7dmo0XxMZsAF4Np5IXTRr/z071TFyw7QXyoJibhJrLhCPgGMNJvNyIVUXI1ZVjwCFRSUUF3YhJGGcNox7Z8haSyIdo6axEhFDt+JeuUZ/Fdon8H5OzJKZa3MaMHhoN2PMjbsKGAAeSBK+a4LOHy96f0mffK+bNu25cou9Oe15UzzrBSxgxWKxWM8jXlVPrLKOUCRMac8eFJeV4QQCIBYrdocspohQECykR5c+hAMR6mLVuQ7BEOC3aMDZ/LpcCZnywaeBUCh0hYhcj+Z4OiRrLelUikQ8RiIWw3NdK8ZEQ+HwqqKSLoudQKDB/2DAwmCBYSLS2+afsmlJLp73nPXsT2eOGb6+ow9eO+3pCoPcbDA/NEjIsQaDwbEGcSG9JYrXmKSgrISCoiIcHN+wZ70txzouLhvR1MtqNDuAh1eQSMVHpt3U7tbaIgQJOiGCThDHBDKGPLtOWGJJDYcKQ001LhctV183edbYprir2cIEAoHRIlzCdsBIp1LUVlVSU7mNxoYGkom467nuCgtPC7wixnwWKSyunHve6S7AGS+/LcXlZZGicHDAxN7dbn+3qq77tmR6n5S1nW0wcDDmRMHKxR8u++nMMcPXtfWha379ZDcRuUXgbGtt0CL4coHneXjbYtikS0GvMoLhMHjKXFYsVgSnQLxIJDRvz/E9E1++V3Np9brGz4HGjMs6/UePGa8hWSGWPbAcjXCSYHYPOAETCoQpDBVTGCoiYHQZBaEwVETKTeJZL2OXHDS4fRV4LTP2Jgm5YP7SgkAgcK+InNnearjpNFVbt7B1w3qiDfVYz0NgIyL3IPKgcZzV711yXkd+diFw76FHHPH3W5989rJXt9b025RI9foKysHDs89bz7u0JShX/Prxbga5xSDnOJiAsaKSgRpwqhKQ8AhVFBNwAur2Wt/txVBaWrB5n0P7LXnmjT8/NfXaqfuinSrtSuP1Jz0owBCxnARcAvRHhFAgRElBGSXh0pYBY0t6ETh98qyxDZAjIcaYMSJyXHtXxRsbWbf6c2q2bcXzPAA7uGt53fdG7HH/wo2bb/r9xKPT21tFNDkY/8/rr0eA8ifvuO3VXmdO6b01mT4q3blCmcHI90C4aN7SS9PL1q2798yj+Pn1j1UY5GaLPcciAYtyvLW+dETTiGsJ9CwCMVir6sRaizhQXBp+Z8HWZ1afNv7m3fcaP9WgmeW+dADItCfPssDnN/zgwVv3PHjgl5Xra+/a8mVNeTKVMFWpLTQmG6go6kE40FbTCgCHoQnTV8CXkPPeX+yEw+E7ReSitq6I1tfzxbKlROuzPWW7d6/YdtI+I6ZN2nuvI9Cs5uo8FnIEWrgxaBLw2VH7jj538hPPh75sTExAs6mdIQ9rX8KzPwm8uCBpLL83yMnGStAgKhX4wV/SYhpcTGkBjjHNJcNKqmu34rfvePiSmg8XzH8ITeP3R0u3j6IB6faoALhpybxVtf9+4OMzqjbWD8/kxIKBEBUlPSkKFrd37QPAlMmzxqYMQCAQ6IM2J7eixoYGvli2pBkYAst+OG70nEl77zUU+Bcqqu2yQA4NQsuaB6A1hXMWfbTwlvpk+kysnUXrqHt7ZBD5DrHk/Z5j/mLhFAtBC002w2LBWmzKw5YGsX7usOldsSlP+Eu0IXHyhwvm34hud2hEazWHo3X4fGgSENlr3JDVB54ydJlxTFOqPZVOsq1+E7FUtL1rD0MTter2CoxrKwBMJZOs/XwF0fpmWfEGC9OuOO2U36Jl0kbUNpxEx7ZgH+AXaNZzEVpFuwr4YPqIwTXW2mk+KJ3rw4oljf107eHWdY+14Kspm7Po/s+IwTqSCxNWbMqKvc9ir7lw2qHb0ErhlSgIX6I1oElooasjGoLm1p4HvjN2/N7Xuq43lZyCVDqdorJhCyk31db1fVHwMae+9q4Yx8l0YTSRtZZtGzdQV90iQyEyV4x56aMFC2rQKtyJaD36BDTt3RbtB0xH0x3fRgs/09EACYCZo3evs9ZOs50AxcYSuB9/gd1c3QIAJc//m2fwJcNihaxkYOd4Yn/5s5sn5E5yDVpuNahu74rWxPdrZxglaKPdK6iq+zeaTXgFrUA2USIVpyZW6Y+yGQWAQx6+aL4xxSXFRf4CNaNkPM6WjetbZjdjAveWlFdkukwWoU0PR6PZ1SvQcmsu7Ydy3YNoN+J8tJBT2fKZM0fvXiciv8Iym+2AYmMJ0h9/gbe5OmucIfuSFopLcv9H0mLnWLFTr5h+THUbt1+PZpBr0FTHk8A0WoMSRF3XzHqE0XKwO+3Js2JWuJcW+1ei8XqS6TY18z5AuQmFwuVtqava6kqS8VbtRJ8i8u6/zvpB5v8e8BDqU3dHuetcsq2kGTCe9H8/BO1W2Ug7nR13jxpW53nudVh7D+2AYhsTJD9ehbu5usmDApotukpHC3uhvyc9sXMs9pdX33B8W2A0PQZVQQcCY/1x54IiaM3lQDTheSTZxrvMJxYiLMq9qeuliSbbLIx2B8pMXU11ueu6zZqjPc+jtrKyVe4fkY8cJ9CyvbMRTQOMRSVmCFq3GIuC8TzqMKxDA6Aw2e7zNmnWfsPrvLR7nbX2z2Q7BXVsjXHin3xOenN1DufnLrxSy7/5kCQt9j6LnTr1hok17T0fZbRGdHEzLbKjyIKyr/86C5X809Hm7WW5N3FDtsZzeF/XLmfBElE82yrZWwb0MquXLilbt2plYSqZZcZ0KkUs2tojEFjy7iXnthUwbESbBE5B68kno1vHHkfV4SfotoI4Got0bX8tlGaN3aPWptJTrec9TCZl0Rgn9vFKUluqm3lRzQ01eBkImhv3lBX7gBU7ddr136vZzuPjaKq80p/bTSi++/nzuwW1gU+hBbB30H6DZnTDw2djhY8AN9dsuF4K12uV6A0DvU0qmSjZsn6ds2rpp+raWnUTPdvqAlfEbOlgEh+i/VUXok0IQdRDiaGde53uYp81bs8qL5m6wlr7JzcaS0Y/XkFqW7WOkawU0ExK2nylPez9Fnv1Db+e1JGayqXcBWhAQfFQFVWC9pQdgtbw76edkoCTZi0t3HkXjzSt4uggUB4ACq21Tm1VJfHGKD369qNLeZsMnAbb0WQ81GBfhba+NKKVuhnswJaCba+9uy3cvescG0+d4NVH+xorqqasbUritfSwNHeF/xehJFVQWRovuq8i1qWVI9EJqkOb+p5GG/BiqMScQkedjrYNoKw/UqFlQ4UY/0FpgEQ8zrpVn7Nq6RLSqVb+ctBCjw4GXIK2YT6DgtMTbT39Obp1odM06eY5WGFYYmvVLen6ht5Zb6qZXWhtSyQDBpQliuhf26N7RazLrcCohy+e/1WGAioRP0G9yiK0tect1MtqN0lqDQFaxGciBskUvqTZu14mX9MkP9ZaYtEGPLeV0TFY217UGvIH66HcU42qsD5ojPJLNBXRORKGWJiFMMGCae7Wtq+i8CWja7yEfvXdCHpOJqaYA4x64NIPtvfkENrhUoHavC7Adaht2YSqqSq04aIX2r/bZmnRGnajRRbDYAhIi4SjkAQ2GXQB89r4aK0dPm7G7JapS0E3ae6FNi8fg3oiV/sT6+X//VcoQC559ASfcMucARbutHCkgpG73B3/A6EiXkx/BSN3nGOAmeLJXjOveqOjxwdQr6cYZbJM/m0p6l1djQaLJ6MMNwHtpG9GV5//gIhHq+aQYDCM0xIQiCNsM6hrl+92grG0rnKNQBsJnkK7yO9FI/A6VGXtgfbGvoEGP2m0C73dnPR3f3tvfyvcbYVjrahkQFYqoB0pEa09dI+VMLC+ey4YGRLgIIHZxY0Fe951dSvHKJcSKAijUQZaiHZL3ogWrOajHZKZbRkXoimQJgpG6YaleY1WoChcnFVZWaoBNhtU9JZ3NLIcGgIcMW7G7AziZcBlaE7/GP9n7iw3o43Zw9E2ntfQROQ+KEit6PjfzRlgRWZaDboMZBdbf8+NNZpHG2KhR6wLg9oGI0MiVg4xnrmntKForzuvaROUYn9uJ6Pd85+hKZ+byWa1PZQJF6LaYQHa/F0AcMVVj2BcDhHLiNwbB50QhaE2s77rgSqDcsIi8mugDKGc0A3l8LNRfVqMZm+foLX7txnVv33QBNoWlJN2o4XePfa2e/tbsXdlwGjt1uYa7+aur1ihd6yMIR2DkSERK4eINTPL6ov2uOuauS3fH4yqpgCahT0SuIHWJYYUmoDsjdrNMnSzjhSuSZcZVy5Em7T9hwpdisoJmjYLsouAOmf9yy9y73vz0+h+hnzqET2ByuGJqB00aNAP0CTacf6A2+uViqHtnaNQEMQf+Ca09dMeddu9/QTuFpgIYkSyDogYg4j6iBlXVzL/RDCI1y9WbofV95Q8wMiQCAzEyshwKvj2m/9ZXrX/hMEZO3MbqkJW+OP9PzT72xbFUaCm4O+tnzhx4oI+oZHfNy7nk1MELIyUUFHYrS11lQTumDxz7OLMO0vIX22FjMiVDd17TUcl4kR0p1Cb9e0cqkNd4v3Q9PZTaJP02Rc++PRQK9xlYaIVDJJjwh1DsKxEe4HwJSNXYrBJkD8NilbcFfBM3nv5fBKBw4wnM3tQtifKJFeh9m4Iurn1EbZ/LspiNLN7GPDqb6658xbH5RpyvKuCgkIqintgWhtz0C1170BWZVTSidMSPGu73/7GO/s8uvDjE8metpMPbUI71J9GPZMHbrzt9sMTrvuche+2dG1xDJFe3fHSLp7rD625YY9buDMt7lU4dmracW+l8/sdBZgQdMyzb70y74do1D0SLby9jC7W9siizNbjg5eX9X/9oY/G42WcH6GwoJjuJb0JmXbDlVfxd441NTmMmzF7uD+AQfnOpHtxUbokHJq+qrL6jnmX/zifvR0D0ZjkI+DUV+YvTN8975PShlhiDBZx/ODVAI44dOnXB5tMEduwGfFArL5nrCCWmCB3GPjNI9ee2wAw5/J3IuF04DLjmamoXcufBIIRZ9n+pw/4YtCYinI0ZhmDpky2e3LQr09/KDJ0ZO+rKtfWXl23NRoGMMahS2EZZZGuONnOxZa0Ffje5Jlj34PmbUArUTXyM/LcarC1IRrY2hC9Cth73IzZf0SDwcZ5l/+4vUtqgPDf3/sgtRmn12MLPukeSyS7ZkCwouwvgQBlgwYgCHVrN2SvFjK1jzgid2K5+ZFrz23Kgk6ZcXDsz5e9OyMAOJ0FxUKq0R3+/oNf9tq2Krq165BIYMiY7hF/zG3STVc+T+Om6kggJfuatFy8esGGE4GwcRwioUJKI10pyDZct/NUXkQ9NZ1ibop93IzZQ9FAZwSAMYZAKNRWXaQtqkZdxKdRF/ALsvuzg0BF18LIsEMHD/ztG6u+KIslUgM91xNtQshyfqiggO5DByNiqFq6AptMqWRYlRCxxA38USzTn5w6pU31dN9l7xSE0oHLjDXX0llJAUSwTths7DW8y6bNK+p/lYylV1phi/EkAVAfiBWsSW0YUFDrjZK0930ROdgRpyJgghIJFxEJFhIOhJHt8/UXwKTJM8d+1PTsFoAIamhn4R8jUVJWjohQX1Pduj7SNmUOmvmSrD7PTUUUCigQKAgGcBCKy8rpPnQwbiJJ5WcrcOMJfT8LRqOBGVh+88wv2wYjQwpK8FJj5TpaH4bTGYqhzLYJde3xxBbFSAw0Ka8US8AYgyMBHON0JA0tKYFG/HdOnpnthG/VbD1uxuxC4FY03nCMMfTsPwDPddm2aSNuOp/2q+1TBhAHIRQK061vP8p69SJaWUnV56vxEkkfiAxwRMVym1h+9+w1U/I6xOz+S98PO665WJBfo/moXYU81EP98eSZY2ty32hzO8K4GbP7oEbtWEACwSADhu2O4zhsXLuGaF1tvtLSLglCOBSivFt3uvXtRzAcpmrtWmrWrMOm3Rw1BkXBkFdaEL51S23D9c9fNaVTm/ofumReqKRbwTWJ+vR1qbi7Q/shdyK9D0yePHPs5y3faM/0b0BbdsqBA9OpFOtWraT/0N0YNmIkNdu2UbllE9H6+raywh2SiKGgMEJpeQUVPXsRKS4m3tDA+qWfEa2sRFwPaapnQCgQiB+yx5BXLjt2/CC0IDSXFmXdDih05t3jvg0Mfefh1U+s/bB6Yjruddqm7GRahKaPWoEBHeygGjdjNqhx/wOaVDNOIEDPfv3p2bc/YgzRulrqqqtoqKsjGY+TTiXxPK9JekQMxgiBYIhQOExhSQklZeUUdyklGAqRSiap2rSRyvXr1V6gEpGxG47I+vPHj1vxg/1HzUM9kePQqHgOHbuigqZmfohmFp4CDlv+5tYx8x77chieNqX9F+hDdLPO/Mkz295r2OEeQx+UgUbkdwKTXGuDIkJJWRm9+g+kpKwcx3HwXJdUKkUqkSCVSpJOaYEwEAwRDIYIhsMEgkEcY7BAIhajpnIblZs2Eo9GMdY2GXfj59oNskgsV2746x8Wfbp48Tkoc7yIxjJj0S3Pz9H6dIRSdDPMMWhapxaNwBfedONNf+2/+ag9HdfcgnZP7vydxG1TGg2IrwQ+nTxzbLsfzGtb9NyVq/deuH7j/Y989Ekfa21PAMdxKC4to7x7D4pLSwkXRHCctlW067okE3Fi0Si1lduoq64imdANlVlvyzf06kk9a6xMN5Zlr/7ifIsmMvdDRX0jWqk7Eq213IOe2BBEJflkNNh6CwUlgrbnfAy4D10yD0/sIGPll2LldL6CW9wZEiO1/UeXrhDMqV9+WLWqIzAg/33qhwCn3PvevHWvr/zi3BXbKgfgZzFFhEAwSEFhIQWRQoxxCISCWEuTCkvEGok3xkinUtgWzRMaFAoGXGPlUwN3GMsTc39+QVuNsKVoEnQiKi0NaCNFHZoYddAURl/0BIX2pIgHfvJBRJATxcovxLIPX30TUXuULO9XWNtnROl9+57QdxCaI1uzvYvyBWQ82ru64Jobpje81qV7CD36e392zMcn7DgEjbMynkrdY6w8LrD2rZ9d0NGgDFr0Og9N8wjZhuhlKGhvol3rHaY87r/0fQTpJ56cFCpwLvZSdqiXtjuqxhpRe/eXxUXP9frNrdOjaArmWtrPGDdRvoCMRquCywF33IzZ96ETH4P2JU1Am6dLyW/zTTToOJX79e3dOKSi/LUv//58YuSJJ195/kHt79/OoTAKyBT/ZxgN3grRWkspmpN7Cl2A7d7zlJNODw0bMuyPk8ZNiUYrk5M2LK611qMH+akzi0rqOjTJ+iLq1lZNnjn2tyiTHIrm8Da0d5MM5QtID7Qx7HVUKn6BP9FxM2YbtGA1BO0S3w09+qIn2ZKGRaPdVSioy0b37b3uTyefcD3aTHc6Wnns6KTpIpQxTkMXai5aR/gOaj9K0frFP9AC0xFoWeERtn/YWWbfynPAkU//atGt0crkYNFK5x7AULGSy2zWCtViWQkss8JnYllhxW458+5xmeeEgdn+Pb+Pelft7kfIUL6AhIA7/ZufgR5E06b4+Z5ZwL+maQKop5FskXj8Ebp4Bj2a6ZGW40MN93i0NhFFmSKAcl0SrWt/iNYejkQNeQNq1DPnOm5CbctCWi+KoE0ZW9Aq4d9QsAGYeeV/iCRCoVAqELCihWSxYtMBN50KpJNTbv9WW8sACuR1aG7vINTD2q60duZEuVPRWngliv7v2fEzdfuj1blH0P0lF6MGugitUx+GTmYNusDFKOcn0YV7n9ZNamVoCfhosgAW+fdKo3WOd1D14aIM8Tv0zJRTgUvZ8ePHC9C9iZ+j0vc6yszbpc4A0g3t3HsM5dZ30K1YOwKKoLq1EY0vPiPr4gbQQ8HWof3Be5P9morlbH+3VTEKwkSUgd5AVeJBaAFquf+3g/x7dUMlraWUdpZCaK/BAWgcdDx6nEZehbPOnkr6bf/m9/m/16MTWE7+6YwMFaK2aQJas16PcutD6HFLPdFJBVEOew1VPZ1NooVRAL6Dnj63Gi0PhNFc3ZEoMIPR/S2Laf2dJPmQoBI/GbU9j6EH4NyGMlZ+N+kkIAad2BR04UpQ1bANdTUXo0FZS24oQFVJb3TifVAPDRSIgWiDxEBUjdShTWnPoIWz7RrDPChjjw7zX93QXN1q1H2uRSXFQSV1JeokrKPtc3uNP69CFPCD/Tm9jTovZ6InFv2dTpzN8lVOtjbAOFQsBVVdSVRXdvUHGSTbCOeSXdA4aoNW+dcUoYb3EP/6t9GNK9ehUrJjKeX2KYzGMWej4O+Ggv+JP75ifzylZI9Ib3mydRhN6cf912IUvG+hgelstGDXqWN0d+Qw/kLUwB6DcttGdKFj/isXECEL1hB0wglUshahHDkO9UyWoQY9Y1u+DuqNplP+hhryR1Dwv4UyRIE/tuX+GBr8OZXm3CONMlpXtPA2wp/r26jr3dHWjXZpZ3xdhUE5Yhi62LvTuhvcQ1XDGnSiG9AB5y54CboR5hMUmCVoVndHD2puSYVon/EGNP1jUC/LzXm/tz+nAaj0FKFMldv9n0KbAEOoy/4Rykw7pF53tW/YGY72zt6P6uA5qJu6swYZAn6M2rEFqENxBflxcya2ypBlJ393COx637CzDFUjZ6C5qAtRVZZ3oboDyrij+6NHA56ElqrzVS1pVKIzrxhfg43b1QABbdh7B+Xev6Au8aHs2FgLUHAPJSt9s8nzPPZvknY1lZWhENkS8tto/uoltDGgs+2i3dBdXL3QhONkVAo75Y5+U7SrAgJqXM9HffvH0Ii7gebHwnZEEVTdXYBKwmoU2DmoF7TLgQG7NiCQ/TafM8meyHM8GrS9grrLVWTTNxFUEkaju7pSqGQNQ6P+29HYYJed9K4OCKhBH4lmBwRNMhaimdlu+N9Q4H+2GLUXa1GpMKgtWolu8N9eh/5/nf4XAMlQARqInoZy+FI0m5r5si4PVWMW3YcyAE3LPIGCs6PfdfKN0P8SIBmKoHHEGFRy+pPNBnho/mkpmpr/ur5U7Guj/0VAcklQycnEKWm+nu89/Mbo/wHXHzrX+M6bNwAAAABJRU5ErkJggg=="/></defs></symbol>
+		<symbol viewBox="0 0 160 20" id="my-Space" xmlns="http://www.w3.org/2000/svg"><path d="M24.55 19h-4.2l.1-13.575L14.775 19H10.75L5.025 5.425c.067 8.6.1 13.125.1 13.575h-4.2V1.35h6.4L12.8 14.3l5.425-12.95h6.325V19zM47.838 1.35l-8.425 11.025V19h-4.4v-6.625l-8.4-11.025h5.425l5.2 7.375 5.225-7.375h5.375zm9.988 13.225l4.025-1.025c.866 1.833 2.858 2.75 5.975 2.75.35 0 .708-.017 1.075-.05.366-.05.833-.142 1.4-.275.566-.133 1.025-.367 1.375-.7.366-.35.55-.783.55-1.3a1.5 1.5 0 00-.125-.625c-.067-.183-.209-.342-.425-.475a4.117 4.117 0 00-.575-.325c-.167-.083-.434-.167-.8-.25a11.712 11.712 0 00-.9-.175c-.217-.05-.567-.108-1.05-.175a870.77 870.77 0 00-2.925-.45c-.55-.1-1.159-.233-1.825-.4-.667-.167-1.225-.358-1.675-.575-1.85-.867-2.775-2.267-2.775-4.2 0-1.25.391-2.3 1.175-3.15C61.109 2.308 62.1 1.7 63.3 1.35 64.5.983 65.867.8 67.4.8c4.583 0 7.666 1.408 9.25 4.225l-4.175 1.05c-.75-1.417-2.484-2.125-5.2-2.125-2.567 0-3.85.683-3.85 2.05 0 .717.466 1.225 1.4 1.525.4.117 2.291.475 5.675 1.075.616.117 1.125.217 1.525.3.4.083.908.25 1.525.5.633.25 1.133.542 1.5.875.366.333.691.792.975 1.375.283.567.425 1.225.425 1.975 0 3.95-2.992 5.925-8.975 5.925-2.5 0-4.517-.408-6.05-1.225-1.517-.817-2.717-2.067-3.6-3.75zM80.05 1.35h10.975c1.383 0 2.55.158 3.5.475.967.3 1.733.933 2.3 1.9.517.833.775 1.883.775 3.15 0 1.5-.392 2.7-1.175 3.6-.683.783-1.467 1.292-2.35 1.525-.883.233-2.058.35-3.525.35H84.4V19h-4.35V1.35zM84.4 4.4v4.85h5.425c1.033 0 1.75-.083 2.15-.25.817-.333 1.225-1.042 1.225-2.125 0-.65-.183-1.225-.55-1.725-.367-.5-.958-.75-1.775-.75H84.4zM117.725 19h-4.95l-1.5-3.325h-9.05l-1.5 3.325H95.9l8.525-17.65h4.775L117.725 19zm-7.875-6.45l-3.075-6.9-3.125 6.9h6.2zm25.525.45H140a7.35 7.35 0 01-.55 1.525c-.233.517-.625 1.092-1.175 1.725a8.536 8.536 0 01-1.925 1.675c-.733.467-1.708.858-2.925 1.175-1.2.333-2.533.5-4 .5-3.233 0-5.808-.817-7.725-2.45-1.917-1.65-2.875-3.983-2.875-7 0-2.75.925-4.992 2.775-6.725C123.467 1.675 126.158.8 129.675.8c2.633 0 4.833.542 6.6 1.625 1.767 1.067 2.942 2.358 3.525 3.875l-4.825.6c-1.25-1.9-3.017-2.85-5.3-2.85-1.117 0-2.1.192-2.95.575-.85.383-1.508.892-1.975 1.525a7.691 7.691 0 00-1.025 1.975 6.818 6.818 0 00-.325 2.075c0 1.733.592 3.192 1.775 4.375 1.2 1.183 2.742 1.775 4.625 1.775 2.683 0 4.542-1.117 5.575-3.35zm24.199 6h-16.95V1.35h16.45v3.175h-12.025V8.5h11.625v3.15h-11.625v4.2h12.525V19z"/></symbol>
+		<symbol viewBox="0 0 50 50" id="telega" xmlns="http://www.w3.org/2000/svg"><circle cx="24.582" cy="24.583" r="24.582"/><path d="M36.624 10.05c-4.955 2.047-9.587 4.848-14.326 7.325-5.062 2.585-10.017 5.494-15.08 8.186-.323.216-.215.862.108.862 3.34.539 6.57 1.293 9.802 2.154.108 3.662 0 7.432 0 11.095 0 .538.539.646.754.215 1.723-2.8 3.447-5.493 5.278-8.186 2.585 1.723 5.17 3.447 7.54 5.386.215.215.538 0 .646-.324.754-4.416 1.508-8.724 2.693-13.14 1.077-4.309 2.154-8.725 3.016-13.141.215-.108-.108-.539-.431-.431zM20.036 28.794c-.108.107-.215.215-.215.43-.108.324-.323.755-.431 1.293-.539 2.262-.862 4.524-1.4 6.786v-8.94c5.062-4.955 10.232-9.802 15.51-14.433a9044.552 9044.552 0 01-9.478 10.447l-2.909 3.232c-.538.43-.861.754-1.077 1.185zM34.47 11.99a392.145 392.145 0 00-17.02 15.725c-2.908-.753-5.816-1.507-8.724-2.046 4.631-2.37 9.047-4.847 13.571-7.217 4.093-2.154 8.079-4.524 12.172-6.462zM18.636 37.194c.538-1.939.862-3.985 1.293-6.032.107-.538.215-.97.323-1.4.754.539 1.508 1.077 2.262 1.508-1.293 1.939-2.585 3.985-3.878 5.924zm14.649-13.572c-1.077 4.094-1.831 8.187-2.585 12.387-3.232-2.477-6.678-4.739-10.017-7 0 0 0-.109.107-.109.431-.538.862-.969 1.293-1.4l2.908-3.231c3.662-3.986 7.324-8.079 10.987-12.064-.754 3.77-1.724 7.54-2.693 11.417z"/></symbol>
+		<symbol viewBox="0 0 50 50" id="whats" xmlns="http://www.w3.org/2000/svg"><circle cx="25.252" cy="24.587" r="24.582"/><path fill-rule="evenodd" clip-rule="evenodd" d="M20.432 15.275a.605.605 0 00-.135.029c-1.372.421-2.343 1.166-2.867 2.136-.524.97-.59 2.106-.365 3.26.45 2.31 2.048 4.793 4.069 6.86s4.458 3.722 6.782 4.204c1.162.241 2.32.177 3.32-.346 1-.524 1.795-1.5 2.289-2.896a.616.616 0 00-.25-.721l-4.387-2.752-.01-.01a.633.633 0 00-.067-.038.616.616 0 00-.212-.087h-.019a.717.717 0 00-.048-.01h-.01a.611.611 0 00-.394.116.606.606 0 00-.058.039.688.688 0 00-.019.029.64.64 0 00-.067.067l-.962.972c-1.744-.878-3.085-2.35-4.29-4.339l.884-.875a.606.606 0 00.048-.049.61.61 0 00.039-.038v-.01a.611.611 0 00.038-.038v-.01a.558.558 0 00.02-.029.435.435 0 00.019-.019.626.626 0 00.019-.048v-.01l.01-.018a.626.626 0 00.019-.039.611.611 0 00.01-.048v-.01a.65.65 0 00.01-.057v-.135a.61.61 0 00-.01-.048v-.01a.636.636 0 00-.039-.105v-.01a.628.628 0 00-.039-.076l-.01-.02a.883.883 0 00-.009-.01L21 15.575a.616.616 0 00-.568-.298v-.001zm-.221 1.356l2.24 3.704-.932.924a.616.616 0 00-.097.74c1.425 2.466 3.112 4.385 5.474 5.426a.615.615 0 00.683-.125l.991-.99 3.617 2.26c-.4.902-.922 1.438-1.52 1.751-.691.363-1.536.431-2.5.231-1.93-.4-4.26-1.916-6.158-3.858-1.898-1.941-3.367-4.303-3.742-6.224-.187-.96-.104-1.788.25-2.444.306-.564.824-1.048 1.694-1.395z"/><path fill-rule="evenodd" clip-rule="evenodd" d="M25.252 10.039c-7.471 0-13.545 6.07-13.545 13.545 0 2.716.805 5.255 2.224 7.433l-1.515 5.055a.616.616 0 00.791.759l4.948-1.708a13.48 13.48 0 007.098 2.006c7.474 0 13.545-6.07 13.545-13.545s-6.07-13.545-13.545-13.545zm0 1.231c6.81 0 12.314 5.504 12.314 12.314 0 6.81-5.504 12.314-12.314 12.314-2.468 0-4.764-.724-6.684-1.97a.615.615 0 00-.536-.065l-4.092 1.412 1.253-4.181a.617.617 0 00-.08-.524c-1.392-2.04-2.175-4.418-2.175-6.986 0-6.81 5.508-12.314 12.314-12.314z"/></symbol>
+</svg>
+
+<!--
+====================================================================================================
+-->
+
+		<header>
+			<h1>SVG <code>&lt;symbol&gt;</code> sprite preview</h1>
+			<p>This preview features two methods of using the generated sprite in conjunction with inline SVG. Please have a look at the HTML source for further details and be aware of the following constraints:</p>
+			<ul>
+				<li>Your browser has to <a href="http://caniuse.com/#feat=svg-html5" target="_blank" rel="noopener noreferrer">support inline SVG</a> for these techniques to work.</li>
+				<li>The embedded sprite (A) slightly differs from the generated external one. Please <a href="https://github.com/svg-sprite/svg-sprite/blob/1.5.x/docs/configuration.md#defs--symbol-mode" target="_blank" rel="noopener noreferrer">see the documentation</a> for details on how to create such an embeddable sprite.</li>
+				<li>Internet Explorer up to version 11 doesn't support external sprites for use with inline SVG. For IE 9-11, you may polyfill this functionality with <a href="https://github.com/jonathantneal/svg4everybody" target="_blank" rel="noopener noreferrer">SVG for Everybody</a>.</li>
+			</ul>
+		</header>
+		<section>
+
+<!--
+
+A) Inline SVG with embedded sprite
+====================================================================================================
+These SVG images make use of fragment identifiers (IDs) and are extracted out of the inline sprite
+embedded above. They may be styled via CSS.
+
+-->
+
+			<h3>A) Inline SVG with embedded sprite</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="#arrow"></use>
+						</svg>
+
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrow-cicle">
+					<div class="icon-box">
+
+						<!-- arrow-cicle -->
+						<svg class="svg-arrow-cicle-dims">
+							<use xlink:href="#arrow-cicle"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-cicle</h2>
+				</li>
+				<li title="arrow-long">
+					<div class="icon-box">
+
+						<!-- arrow-long -->
+						<svg class="svg-arrow-long-dims">
+							<use xlink:href="#arrow-long"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-long</h2>
+				</li>
+				<li title="arrow-next-slide">
+					<div class="icon-box">
+
+						<!-- arrow-next-slide -->
+						<svg class="svg-arrow-next-slide-dims">
+							<use xlink:href="#arrow-next-slide"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-next-slide</h2>
+				</li>
+				<li title="arrow-prev-slide">
+					<div class="icon-box">
+
+						<!-- arrow-prev-slide -->
+						<svg class="svg-arrow-prev-slide-dims">
+							<use xlink:href="#arrow-prev-slide"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-prev-slide</h2>
+				</li>
+				<li title="burger-icon">
+					<div class="icon-box">
+
+						<!-- burger-icon -->
+						<svg class="svg-burger-icon-dims">
+							<use xlink:href="#burger-icon"></use>
+						</svg>
+
+					</div>
+					<h2>burger-icon</h2>
+				</li>
+				<li title="close-icon">
+					<div class="icon-box">
+
+						<!-- close-icon -->
+						<svg class="svg-close-icon-dims">
+							<use xlink:href="#close-icon"></use>
+						</svg>
+
+					</div>
+					<h2>close-icon</h2>
+				</li>
+				<li title="logo">
+					<div class="icon-box">
+
+						<!-- logo -->
+						<svg class="svg-logo-dims">
+							<use xlink:href="#logo"></use>
+						</svg>
+
+					</div>
+					<h2>logo</h2>
+				</li>
+				<li title="my-Space">
+					<div class="icon-box">
+
+						<!-- my-Space -->
+						<svg class="svg-my-Space-dims">
+							<use xlink:href="#my-Space"></use>
+						</svg>
+
+					</div>
+					<h2>my-Space</h2>
+				</li>
+				<li title="telega">
+					<div class="icon-box">
+
+						<!-- telega -->
+						<svg class="svg-telega-dims">
+							<use xlink:href="#telega"></use>
+						</svg>
+
+					</div>
+					<h2>telega</h2>
+				</li>
+				<li title="whats">
+					<div class="icon-box">
+
+						<!-- whats -->
+						<svg class="svg-whats-dims">
+							<use xlink:href="#whats"></use>
+						</svg>
+
+					</div>
+					<h2>whats</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<section>
+
+<!--
+
+B) Inline SVG with external sprite (IE 9-11 with polyfill only)
+====================================================================================================
+These SVG images make use of an URL + fragment identifiers (IDs) and refer to the regular external
+SVG sprite. They may be styled via CSS. (IE 9-11 with polyfill only)
+
+-->
+
+			<h3>B) Inline SVG with external sprite (IE 9-11 with polyfill only)</h3>
+			<ul>
+
+				<li title="arrow">
+					<div class="icon-box">
+
+						<!-- arrow -->
+						<svg class="svg-arrow-dims">
+							<use xlink:href="../sprite.svg#arrow"></use>
+						</svg>
+
+					</div>
+					<h2>arrow</h2>
+				</li>
+				<li title="arrow-cicle">
+					<div class="icon-box">
+
+						<!-- arrow-cicle -->
+						<svg class="svg-arrow-cicle-dims">
+							<use xlink:href="../sprite.svg#arrow-cicle"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-cicle</h2>
+				</li>
+				<li title="arrow-long">
+					<div class="icon-box">
+
+						<!-- arrow-long -->
+						<svg class="svg-arrow-long-dims">
+							<use xlink:href="../sprite.svg#arrow-long"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-long</h2>
+				</li>
+				<li title="arrow-next-slide">
+					<div class="icon-box">
+
+						<!-- arrow-next-slide -->
+						<svg class="svg-arrow-next-slide-dims">
+							<use xlink:href="../sprite.svg#arrow-next-slide"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-next-slide</h2>
+				</li>
+				<li title="arrow-prev-slide">
+					<div class="icon-box">
+
+						<!-- arrow-prev-slide -->
+						<svg class="svg-arrow-prev-slide-dims">
+							<use xlink:href="../sprite.svg#arrow-prev-slide"></use>
+						</svg>
+
+					</div>
+					<h2>arrow-prev-slide</h2>
+				</li>
+				<li title="burger-icon">
+					<div class="icon-box">
+
+						<!-- burger-icon -->
+						<svg class="svg-burger-icon-dims">
+							<use xlink:href="../sprite.svg#burger-icon"></use>
+						</svg>
+
+					</div>
+					<h2>burger-icon</h2>
+				</li>
+				<li title="close-icon">
+					<div class="icon-box">
+
+						<!-- close-icon -->
+						<svg class="svg-close-icon-dims">
+							<use xlink:href="../sprite.svg#close-icon"></use>
+						</svg>
+
+					</div>
+					<h2>close-icon</h2>
+				</li>
+				<li title="logo">
+					<div class="icon-box">
+
+						<!-- logo -->
+						<svg class="svg-logo-dims">
+							<use xlink:href="../sprite.svg#logo"></use>
+						</svg>
+
+					</div>
+					<h2>logo</h2>
+				</li>
+				<li title="my-Space">
+					<div class="icon-box">
+
+						<!-- my-Space -->
+						<svg class="svg-my-Space-dims">
+							<use xlink:href="../sprite.svg#my-Space"></use>
+						</svg>
+
+					</div>
+					<h2>my-Space</h2>
+				</li>
+				<li title="telega">
+					<div class="icon-box">
+
+						<!-- telega -->
+						<svg class="svg-telega-dims">
+							<use xlink:href="../sprite.svg#telega"></use>
+						</svg>
+
+					</div>
+					<h2>telega</h2>
+				</li>
+				<li title="whats">
+					<div class="icon-box">
+
+						<!-- whats -->
+						<svg class="svg-whats-dims">
+							<use xlink:href="../sprite.svg#whats"></use>
+						</svg>
+
+					</div>
+					<h2>whats</h2>
+				</li>
+			</ul>
+
+<!--
+====================================================================================================
+-->
+
+		</section>
+		<footer>
+			<p>Generated at Thu, 12 May 2022 08:52:51 GMT by <a href="https://github.com/svg-sprite/svg-sprite" target="_blank" rel="noopener noreferrer">svg-sprite</a>.</p>
+		</footer>
+	</body>
+</html>
