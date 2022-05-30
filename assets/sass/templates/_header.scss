@@ -10,6 +10,17 @@
 	&__desktop{
 		display: flex;
 	}
+	&__desktop 
+		li{
+			margin-left: 2.5rem;
+		}
+	&__desktop 
+		li{
+			a{
+				font-size: 1.8rem;
+				font-family: $font_1;
+			}
+		}	
 	
 }
 
